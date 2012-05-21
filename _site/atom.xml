@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>EklaWeb TechBlog</title>
+ <link href="http://blog.eklaweb.com/atom.xml" rel="self"/>
+ <link href="http://blog.eklaweb.com"/>
+ <updated>2012-05-21T18:24:14+02:00</updated>
+ <id>http://blog.eklaweb.com</id>
+ <author>
+   <name>EklaWeb SARL<br />17 rue La Noue Bras de Fer<br />44000 Nantes</name>
+   <email>contact@eklaweb.com</email>
+ </author>
+
+ 
+ 
+</feed>
