@@ -4,13 +4,25 @@
  <title>EklaWeb TechBlog</title>
  <link href="http://blog.eklaweb.com/atom.xml" rel="self"/>
  <link href="http://blog.eklaweb.com"/>
- <updated>2012-05-21T18:24:14+02:00</updated>
+ <updated>2012-05-21T19:14:40+02:00</updated>
  <id>http://blog.eklaweb.com</id>
  <author>
    <name>EklaWeb SARL<br />17 rue La Noue Bras de Fer<br />44000 Nantes</name>
    <email>contact@eklaweb.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Welcome on the Eklaweb technical blog</title>
+   <link href="http://blog.eklaweb.com/2012/05/21/welcome-on-the-eklaweb-technical-blog"/>
+   <updated>2012-05-21T00:00:00+02:00</updated>
+   <id>http://blog.eklaweb.com/2012/05/21/welcome-on-the-eklaweb-technical-blog</id>
+   <content type="html">&lt;h2 id='the_eklaweb_technical_blog'&gt;The Eklaweb technical blog&lt;/h2&gt;
+
+&lt;p&gt;Here at &lt;span&gt;eklaweb&lt;/span&gt; we like to take up technical challenges. This blog will be the place where our engineers will publish articles about the most interesting ones.&lt;/p&gt;
+
+&lt;p&gt;We&amp;#8217;ll be talking mainly about Scala, functionnal programming, HTML5 mobile development with or without Phonegap / Cordova and JS-intensive web applications.&lt;/p&gt;</content>
+ </entry>
  
  
 </feed>
