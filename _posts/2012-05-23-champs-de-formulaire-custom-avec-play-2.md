@@ -61,7 +61,7 @@ langage. On les retrouve cependant en scala, mais il faut le faire à la main.
 
 Une typeclass définit un ensemble de méthodes qui doivent fonctionner avec le
 type. Par exemple, on peut s'intéresser aux **monoides**. Un type ``T`` est un
-monoide s'il existe une opération de ``T x T`` dans ``T`` et un élément neutre
+monoide s'il existe une opération ``(T, T) => T`` et un élément neutre 
 pour cette opération. Par exemple les entiers naturels avec l'addition et 0,
 les chaines de caractères avec la concaténation et ``""``.
 
