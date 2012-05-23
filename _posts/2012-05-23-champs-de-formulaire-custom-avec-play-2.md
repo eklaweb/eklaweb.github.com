@@ -50,7 +50,7 @@ et
       )
     )
 
-Le but va évidemment d'appeler ``of[T]`` avec des types perso. Play! le permet
+Le but va évidemment être d'appeler ``of[T]`` avec des types perso. Play! le permet
 grâce au mécanisme de **TypeClass**. Ce mécanisme permet de placer une
 contrainte sur le type ``T``.
 
