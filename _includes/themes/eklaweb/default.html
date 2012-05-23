@@ -5,14 +5,14 @@
     <title>{{ site.title }}</title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     {% if site.author.name %}<meta name="author" content="{{ site.author.name }}">{% endif %}
-    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ ASSET_PATH }}/bootstrap/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="{{ ASSET_PATH }}/css/style.css" />
     <link rel="icon" type="image/png" href="{{ ASSET_PATH }}/img/favicon.png" />
     <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="{{ ASSET_PATH }}/img/favicon.ico" /><![endif]-->
-    <script type="text/javascript" src="{{ ASSET_PATH }}/javascript/mootools-core-1.4.4.js"></script>
-    <script type="text/javascript" src="{{ ASSET_PATH }}/javascript/mootools-more-1.4.0.1.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{ ASSET_PATH }}/javascript/main.js"></script>
-    <script type="text/javascript" src="{{ ASSET_PATH }}/javascript/SmoothScroll.js"></script>
     <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-460517-6']);
