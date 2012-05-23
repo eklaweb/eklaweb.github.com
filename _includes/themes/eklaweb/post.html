@@ -1,20 +1,18 @@
 <article class="post">
   <div class="page-header">
     <h1>{{ page.title }}</h1>{% if page.tagline %}<small>{{ page.tagline }}</small>{% endif %}
-    <h4>Published : </h4><span class="date">{{ page.date | date_to_long_string }}</span><br />
+    <strong>Published : </strong><span class="date">{{ page.date | date_to_long_string }}</span><br />
     {% unless page.tags == empty %}
-      <h4>Tags : </h4>
-      <ul class="tag_box">
+      <strong>Tags : </strong>
+      <ul class="unstyled tags">
       {% assign tags_list = page.tags %}
       {% include JB/tags_list %}
       </ul>
     {% endunless %}
   </div>
 
-  <div class="row">
-    <div class="span8">
       {{ content }}
-      <hr/>
+      <hr />
       <div class="pagination">
         <ul>
         {% if page.previous %}
@@ -29,8 +27,7 @@
         {% endif %}
         </ul>
       </div>
-      <hr>
+      <hr />
       {% include JB/comments %}
     </div>
-  </div>
 </article>

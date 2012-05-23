@@ -42,55 +42,55 @@
    </div>
   </nav>
 
-  
+  <div class="container">
+  <div class="row">
+    <div class="span9">
+      {{ content }}
+    </div>
 
-    <div class="container">
-      <section id="menu">
-        <h2>Tags</h2>
-        <ul class="tag_box">
-          {% assign tags_list = site.tags %}
-          {% include JB/tags_list %}
-        </ul>
-        <h2>Articles</h2>
-        <ul>
-          {% for post in site.posts limit:5 %}
-          <li><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </section>
+    <section id="menu" class="span3">
+      <h2>Tags</h2>
+      <ul class="unstyled">
+        {% assign tags_list = site.tags %}
+        {% include JB/tags_list %}
+      </ul>
+      <h2>Articles</h2>
+      <ul class="unstyled">
+        {% for post in site.posts limit:5 %}
+        <li><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
 
-      <div class="content">
-        {{ content }}
-      </div>
-
-    </div> <!-- /container -->
+  </div>
+  </div>
 
 
     <footer>
       <div class="container">
-          <div id="footer-line" class="row">
-              Eklaweb - <a href="javascript:;" id="link-legals">Mentions légales</a>
-          </div>
-          <div id="legals" class="row">
-              <h3>Mentions légales</h3>
-              <h4>La société</h4>
-              <p>
-                  <strong>Dénomination sociale :</strong> EklaWeb<br />
-                  <strong>Forme sociale :</strong> Société à Responsabilité Limitée<br />
-                  <strong>Capital social :</strong> 1.000 euros<br />
-                  <strong>RCS :</strong> Nantes - 512 122 730<br />
-                  <strong>Siège social:</strong> 1 place Graslin, 44000 Nantes<br />
-                  <br />
-                  "EklaWeb" est une marque déposée à l'I.N.P.I de Paris sous le numéro 07 3 512 950
-              </p>
+        <div id="footer-line" class="row">
+                Eklaweb - <a href="javascript:;" id="link-legals">Mentions légales</a>
+            </div>
+            <div id="legals" class="row">
+                <h3>Mentions légales</h3>
+                <h4>La société</h4>
+                <p>
+                    <strong>Dénomination sociale :</strong> EklaWeb<br />
+                    <strong>Forme sociale :</strong> Société à Responsabilité Limitée<br />
+                    <strong>Capital social :</strong> 1.000 euros<br />
+                    <strong>RCS :</strong> Nantes - 512 122 730<br />
+                    <strong>Siège social:</strong> 1 place Graslin, 44000 Nantes<br />
+                    <br />
+                    "EklaWeb" est une marque déposée à l'I.N.P.I de Paris sous le numéro 07 3 512 950
+                </p>
 
-              <h4>Hébergeur :</h4>
-              <p>
-                  <strong>OVH SAS</strong><br />
-                  2 rue Kellermann<br />
-                  59100 Roubaix 
-              </p>
-          </div>
+                <h4>Hébergeur :</h4>
+                <p>
+                    <strong>OVH SAS</strong><br />
+                    2 rue Kellermann<br />
+                    59100 Roubaix
+                </p>
+        </div>
       </div>
     </footer>
 
