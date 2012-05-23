@@ -9,7 +9,7 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : EklaWeb TechBlog
+title : eklaweb Tech Blog
 tagline: eklaweb - Agence de développement web sur mesure
 author :
   name : EklaWeb SARL<br />17 rue La Noue Bras de Fer<br />44000 Nantes
