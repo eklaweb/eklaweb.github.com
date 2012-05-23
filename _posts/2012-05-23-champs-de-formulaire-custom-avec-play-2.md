@@ -103,7 +103,7 @@ Dans notre cas, il s'agit de s'assurer qu'il est
 possible de passer d'une chaine de caractères (la valeur fournie par le champ
 de formulaire) à une valeur de type ``T`` et vice-versa.
 
-La typeclass qui s'occupe de ça dans play s'appelle ``Formatter[T]]``. C'est
+La typeclass qui s'occupe de ça dans play s'appelle ``Formatter[T]``. C'est
 visible dans la signature de ``of[T]``:
 
     def of[T](implicit binder: Formatter[T])
