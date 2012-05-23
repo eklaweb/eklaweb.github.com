@@ -3,7 +3,7 @@ layout: post
 title: "Champs de formulaire custom avec Play! 2"
 description: ""
 category: 
-tags: []
+tags: ["scala", "playframework", "typeclass"]
 ---
 {% include JB/setup %}
 
