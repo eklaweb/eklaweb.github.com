@@ -50,7 +50,7 @@ et
       )
     )
 
-Le but va évidemment d'appeler ``of[T]`` avec des types perso. Play! le permet
+Le but va évidemment être d'appeler ``of[T]`` avec des types perso. Play! le permet
 grâce au mécanisme de **TypeClass**. Ce mécanisme permet de placer une
 contrainte sur le type ``T``.
 
@@ -61,7 +61,7 @@ langage. On les retrouve cependant en scala, mais il faut le faire à la main.
 
 Une typeclass définit un ensemble de méthodes qui doivent fonctionner avec le
 type. Par exemple, on peut s'intéresser aux **monoides**. Un type ``T`` est un
-monoide s'il existe une opération de ``T x T`` dans ``T`` et un élément neutre
+monoide s'il existe une opération ``(T, T) => T`` et un élément neutre 
 pour cette opération. Par exemple les entiers naturels avec l'addition et 0,
 les chaines de caractères avec la concaténation et ``""``.
 
@@ -103,7 +103,7 @@ Dans notre cas, il s'agit de s'assurer qu'il est
 possible de passer d'une chaine de caractères (la valeur fournie par le champ
 de formulaire) à une valeur de type ``T`` et vice-versa.
 
-La typeclass qui s'occupe de ça dans play s'appelle ``Formatter[T]]``. C'est
+La typeclass qui s'occupe de ça dans play s'appelle ``Formatter[T]``. C'est
 visible dans la signature de ``of[T]``:
 
     def of[T](implicit binder: Formatter[T])
@@ -150,7 +150,7 @@ plus simplement) :
     case object Female extends Gender
 
     implicit val GenderBinder = new Formatter[Gender] {
-        def bind(key, String, data: Map[String, String]: Either[Seq[FormError], T] = {
+        def bind(key: String, data: Map[String, String]): Either[Seq[FormError], Gender] = {
              data.get(key) flatMap { v =>
                 Seq(Male, Female) find { _.toString() == v }
              }.toRight(Seq(FormError(key, "error.required")))
