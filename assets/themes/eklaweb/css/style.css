@@ -33,6 +33,11 @@ body>header h1 {
   background: url("../img/logo.png") no-repeat center bottom;
 }
 
+body>header a {
+  display: block;
+  height: 110px;
+}
+
 #shadow-header {
   height: 20px;
   background: top center url("../img/shadow-header.png") repeat-x;
