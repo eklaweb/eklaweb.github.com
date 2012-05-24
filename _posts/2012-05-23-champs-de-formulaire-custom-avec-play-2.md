@@ -150,7 +150,7 @@ plus simplement) :
     case object Female extends Gender
 
     implicit val GenderBinder = new Formatter[Gender] {
-        def bind(key, String, data: Map[String, String]: Either[Seq[FormError], T] = {
+        def bind(key: String, data: Map[String, String]): Either[Seq[FormError], Gender] = {
              data.get(key) flatMap { v =>
                 Seq(Male, Female) find { _.toString() == v }
              }.toRight(Seq(FormError(key, "error.required")))
