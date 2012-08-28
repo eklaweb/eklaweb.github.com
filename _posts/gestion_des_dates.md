@@ -10,10 +10,10 @@ tags: ["date", "joda-time", "java", "scala", "javascript", "timestamp"]
 La gestion des dates dans le code est un problème récurrent, et pourtant loin
  d'être trivial. Il existe en effet de nombreuses normes et représentations en
  plus du fonctionnement intrinsèquement complexe de notre système de mesure du
- temps. Les cas singuliers tels que les années bisextiles, ou la durée variables
- des mois rendant les calculs sur les dates complexes. Cet article a ainsi pour
- objectif d'apporter aux développeurs les connaissances et bonnes pratiques de
- base quant à l'utilsation des dates.
+ temps. Les cas singuliers tels que les années bissextiles, ou la durée variable
+ des mois rendent les calculs sur les dates complexes. Cet article a ainsi pour
+ objectif de résumer le fonctionnement des dates et les bonnes pratiques quant à
+ leur utilisation en Scala et en Javascript.
 
 ## Comprendre les dates en informatique
 
@@ -33,7 +33,7 @@ On appelle ce temps l'[UTC][utc] (Temps universel coordonné), remplaçant
  atomique intenational][TAI], et sur le [Temps universel][TU] lié à la rotation
  de la Terre. Ce dernier étant légèrement variable, il est nécessaire d'ajouter
  ou de retirer une [seconde intercalaire][leap_sec] (ou "leap second") lorsque
- cela est nécessaire. Le temps UTC inclut donc ce décallage.
+ cela est nécessaire. Le temps UTC inclut donc ce décalage.
 
 Ainsi d'après le standard la date et l'heure s'écrivent de la manière suivante :
 
@@ -64,11 +64,13 @@ conseillé d'utiliser à la place une autre bibliothèque : [Joda-Time][jodatime
 Cette dernière fournit une implémentation simple, et sera bientôt directement
  intégrée dans Java 8.
 
-En effet, Joda-Time repose sur plusieurs concepts très intéressant parmi
- lesquels :
+La conception de Joda Time la rend agréable à utiliser depuis Java et Scala pour
+ les raisons suivantes.
 
+* **La simplicité**. Joda Time est simple à utiliser et permet d'écrire du code plus
+lisible et moins verbeux.
 * **L'immutabilité**, bien que codé en Java. Cela en fait une des rares
- bibliothèques Java agréable à utiliser en Scala.
+ bibliothèques Java agréables à utiliser en Scala.
 * **L'interopérabilité** avec le JDK, ce qui rend la migration vers cette
  bibliothèque très simple.
 
@@ -80,7 +82,7 @@ Voici quelques exemples de cas d'utilisation classiques :
 
 * Ajouter une durée :
 
-        dateTime.plusDays(45).plusMonths(1);
+        DateTime dt2 = dateTime.plusDays(45).plusMonths(1);
 
 * Choisir un format :
 
@@ -95,14 +97,14 @@ Pour [plus de détail][info_joda] à propos de Joda-Time...
 [jodatime]: http://joda-time.sourceforge.net/
 [info_joda]: http://www.ibm.com/developerworks/java/library/j-jodatime/index.html
 
-Regardons maintenant comment traiter les dates dans un navigateur, donc en 
-JavaScript bien entendu.
+Regardons maintenant comment traiter les dates dans un navigateur, en 
+JavaScript.
 
 
 ## Les dates en JavaScript
 
 JavaScript fournit dans son implémentation un objet `Date`. Les fonctions 
-disponibles bien que plus limitées que Joda-Time, suffisent à la plupart des 
+disponibles, bien que plus limitées que Joda-Time, suffisent à la plupart des 
 besoins. Son utilisation est simple, nécessite tout de même des précautions.
 
 En effet, à l'origine cet objet ne supporte pas le standard ISO-8601, mais la
@@ -172,7 +174,7 @@ strict.
 
 La norme ISO-8601 n'est simplement pas supportée.
 
-Il est donc conseillé de toujours utiliser la bibliothèque JavaScript suivante
+En cas de besoin, on peut employer la bibliothèque JavaScript suivante
  ajoutant son support : [iso8601.js][iso8601_js]. On peut alors tranquillement
  faire : 
 
@@ -180,10 +182,6 @@ Il est donc conseillé de toujours utiliser la bibliothèque JavaScript suivante
     d.setTime( Date.parse("2012-08-01T13:00:00Z") );
 
 [iso8601_js]: https://github.com/csnover/js-iso8601
-
-<!-- Ainsi, lors d'une communication avec un serveur, utilisant par exemple 
-Joda-Time, une bonne pratique est d'utiliser des timestamps afin d'éviter toute 
-ambiguïté. -->
 
 ## Bonnes pratiques
 
@@ -202,13 +200,17 @@ La comparaison de dates est un problème récurrent, par exemple pour calculer
 l'âge d'une personne à partir de sa date de naissance.
 
 L'objet Date en JavaScript ne disposant pas de suffisamment de fonctionnalités
- pour le faire de manière exacte et élégante, il peut être tentant d'extraire
- l'année, le mois et le jour de la date de naissance, et calculer l'âge
- avec un complexe calcul souvent faux. C'est évidemment une très mauvaise
- pratique.
+ pour le faire de manière exacte et élégante. La solution la plus simple
+ (mais cependant incorrecte) est de partir de l'intervalle en secondes et de
+ le convertir en jours / mois / années. Évidemment cela ne tient pas compte de
+ toutes les complexités du calendrier.
+
+Calculer la durée d'un intervalle en extrayant les valeurs des dates
+ (jours, mois, année) est le plus souvent mal fait et le gain de précision
+ recherché n'est en général pas nécessaire.
 
 Joda-Time offre pour cela de nombreuses méthodes gérant de manière
- transparente les cas singuliers comme les années bisextiles. Ainsi, un
+ transparente les cas singuliers comme les années bissextiles. Ainsi, un
  exemple simple en Scala nous donne alors :
 
     val birthDate = new DateTime("1985-06-15T13:00:00Z")
