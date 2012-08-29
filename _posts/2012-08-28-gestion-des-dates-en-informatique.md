@@ -31,9 +31,9 @@ horaire, soit en temps universel, donc établi par rapport à une référence fi
 On appelle ce temps l'[UTC][utc] (Temps universel coordonné), remplaçant
  l'ancienne appellation standard GMT. L'UTC est basé à la fois sur le [Temps
  atomique intenational][TAI], et sur le [Temps universel][TU] lié à la rotation
- de la Terre. Ce dernier étant légèrement variable, il est nécessaire d'ajouter
- ou de retirer une [seconde intercalaire][leap_sec] (ou "leap second") lorsque
- cela est nécessaire. Le temps UTC inclut donc ce décalage.
+ de la Terre. Ce dernier étant légèrement variable, il est parfois nécessaire
+ d'ajouter ou de retirer une [seconde intercalaire][leap_sec] (ou "leap second").
+ Le temps UTC inclut donc ce décalage.
 
 Ainsi d'après le standard la date et l'heure s'écrivent de la manière suivante :
 
@@ -61,8 +61,9 @@ Java permettant de manipuler les dates :
 Elles sont cependant complexes à utiliser, et ne respectent pas toujours le 
 standard si bien qu'elles sont pour la plupart obsolètes. Il est fortement 
 conseillé d'utiliser à la place une autre bibliothèque : [Joda-Time][jodatime].
-Cette dernière fournit une implémentation simple, et sera bientôt directement
- intégrée dans Java 8.
+Cette dernière fournit une implémentation simple. D'ailleurs [ThreeTen][threeten],
+ l'implémentation de référence de la JSR-310 reprenant fortement Joda-Time sera 
+ intégré dans Java 8.
 
 La conception de Joda Time la rend agréable à utiliser depuis Java et Scala pour
  les raisons suivantes.
@@ -92,10 +93,11 @@ Voici quelques exemples de cas d'utilisation classiques :
 
         datetime.toString()
 
-Pour [plus de détail][info_joda] à propos de Joda-Time...
+Pour [plus de détails][info_joda] à propos de Joda-Time...
 
 [jodatime]: http://joda-time.sourceforge.net/
 [info_joda]: http://www.ibm.com/developerworks/java/library/j-jodatime/index.html
+[threeten]: http://sourceforge.net/apps/mediawiki/threeten/index.php?title=ThreeTen
 
 Regardons maintenant comment traiter les dates dans un navigateur, en 
 JavaScript.
@@ -105,7 +107,7 @@ JavaScript.
 
 JavaScript fournit dans son implémentation un objet `Date`. Les fonctions 
 disponibles, bien que plus limitées que Joda-Time, suffisent à la plupart des 
-besoins. Son utilisation est simple, nécessite tout de même des précautions.
+besoins. Son utilisation est simple mais nécessite tout de même des précautions.
 
 En effet, à l'origine cet objet ne supporte pas le standard ISO-8601, mais la
  RFC2822 décrivant les dates de la manière suivante :
@@ -118,12 +120,12 @@ L'utilisation classique nous donne :
 
         var d = new Date();
 
-* A partir d'un timestamp :
+* À partir d'un timestamp :
     
         var d = new Date();
         d.setTime(1346071050092);
 
-* A partir du standard de la RFC2822 :
+* À partir du standard de la RFC2822 :
     
         var d = new Date("Wed, 28 Jul 1999 15:15:20 GMT+0100");
 
@@ -132,8 +134,8 @@ Lorsque l'on crée comme cela un objet `Date`, l'heure est automatiquement
  fuseau horaire on se trouve.
 
 Bien que la norme ISO-8601 est maintenant censée être supportée en plus de la
- RFC2822, mais tous les navigateurs ne sont pas logés à la même enseigne. En
- effet, voici différents comportement des navigateurs :
+ RFC2822, tous les navigateurs ne sont pas logés à la même enseigne. En
+ effet, voici différents comportements des navigateurs :
 
 
 ### Firefox
@@ -191,7 +193,7 @@ de l'utilisation des dates.
 ### Utiliser l'UTC !
 
 Bien que les outils précédents permettent de travailler sur des temps locaux ou 
-UTC, il est vivement conseillé de n'utiliser que des temps UTC, et faire la 
+UTC, il est vivement conseillé de n'utiliser que des temps UTC et faire la 
 conversion en temps local le plus tard possible.
 
 ### Comparaison de dates
@@ -218,12 +220,12 @@ Joda-Time offre pour cela de nombreuses méthodes gérant de manière
     val comparator = DateTimeComparator.getInstance()
     val isOfAge = comparator.compare(today, birthdate.plusYears(18))
     if (isOfAge > 0) {
-      println("That budy is of age !")
+      println("That buddy is of age!")
     }
 
-## Conslusion
+## Conclusion
 
-Il ressort de cet article que qu'utiliser les dates n'est pas si évident, et
+Il ressort de cet article que de manipuler les dates n'est pas si évident, et
  qu'il est préférable de déléguer cela à une bibliothèque, en particulier
  Joda-Time. De plus la multiplicté des standards et leur support plus ou moins
  complet notamment par les navigateurs imposent quelques précautions.
