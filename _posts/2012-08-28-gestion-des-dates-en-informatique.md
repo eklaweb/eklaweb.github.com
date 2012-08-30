@@ -30,7 +30,7 @@ L'heure peut être exprimée soit en temps local, donc dépendant du fuseau
 horaire, soit en temps universel, donc établi par rapport à une référence fixe.
 On appelle ce temps l'[UTC][utc] (Temps universel coordonné), remplaçant
  l'ancienne appellation standard GMT. L'UTC est basé à la fois sur le [Temps
- atomique intenational][TAI], et sur le [Temps universel][TU] lié à la rotation
+ atomique international][TAI], et sur le [Temps universel][TU] lié à la rotation
  de la Terre. Ce dernier étant légèrement variable, il est parfois nécessaire
  d'ajouter ou de retirer une [seconde intercalaire][leap_sec] (ou "leap second").
  Le temps UTC inclut donc ce décalage.
