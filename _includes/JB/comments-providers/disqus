@@ -2,6 +2,12 @@
 <script type="text/javascript">
     {% if site.safe == false %}var disqus_developer = 1;{% endif %}
     var disqus_shortname = '{{ site.JB.comments.disqus.short_name }}'; // required: replace example with your forum shortname
+    {%if p %}
+    var disqus_url = '{{site.production_url}}{{p.url}}';
+    {% else if post %}
+    var disqus_url = '{{site.production_url}}{{page.url}}';
+    {% endif %}
+
     {% if page.wordpress_id %}var disqus_identifier = '{{page.wordpress_id}} {{site.production_url}}/?p={{page.wordpress_id}}';{% endif %}
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
