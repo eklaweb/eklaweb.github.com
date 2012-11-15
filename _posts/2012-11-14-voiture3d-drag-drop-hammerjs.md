@@ -1,4 +1,11 @@
-# Voiture 3D - Drag & drop multi device
+---
+layout: post
+title: "Voiture 3D - Drag & drop multi device"
+description: ""
+category:
+tags: ["hammerjs", "multi-plateforme"]
+---
+{% include JB/setup %}
 
 Toute l’équipe Eklaweb est ravie de vous annoncer qu’un projet de voiture 3D sur
 laquelle elle travaillait vient d’être mis en production sur [https://www.plug-
@@ -31,6 +38,6 @@ supporte pas les images plus larges que 2048x2048 px et les redimensionne
 automatiquement.
 
 Enfin, nous avons géré les événements touch sur tablette et de click/drag
-sur desktop avec une seule et même bibliothèque : [hammer.js]http://eightmedia.github.com/hammer.js/). L’intérêt de cette dernière est de
+sur desktop avec une seule et même bibliothèque : [hammer.js](http://eightmedia.github.com/hammer.js/). L’intérêt de cette dernière est de
 gérer aussi bien les événements de click et de drag sur desktop que les
 événements de drag et touch sur tablette.
